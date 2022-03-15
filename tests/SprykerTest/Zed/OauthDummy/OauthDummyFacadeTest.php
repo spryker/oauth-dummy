@@ -8,6 +8,7 @@
 namespace SprykerTest\Zed\OauthDummy\Business;
 
 use Codeception\Test\Unit;
+use Generated\Shared\Transfer\AccessTokenRequestTransfer;
 use Generated\Shared\Transfer\AccessTokenResponseTransfer;
 
 /**
@@ -33,7 +34,9 @@ class OauthDummyFacadeTest extends Unit
      */
     public function testGenerateAccessTokenSuccess(): void
     {
-        $accessTokenResponseTransfer = $this->tester->getFacade()->generateAccessToken();
+        $accessTokenRequestTransfer = (new AccessTokenRequestTransfer());
+
+        $accessTokenResponseTransfer = $this->tester->getFacade()->generateAccessToken($accessTokenRequestTransfer);
 
         $this->assertInstanceOf(AccessTokenResponseTransfer::class, $accessTokenResponseTransfer);
         $this->assertTrue($accessTokenResponseTransfer->getIsSuccessful());

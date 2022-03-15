@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\OauthDummy\Business;
 
+use Generated\Shared\Transfer\AccessTokenRequestTransfer;
 use Generated\Shared\Transfer\AccessTokenResponseTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
@@ -20,12 +21,15 @@ class OauthDummyFacade extends AbstractFacade implements OauthDummyFacadeInterfa
      *
      * @api
      *
+     * @param \Generated\Shared\Transfer\AccessTokenRequestTransfer $accessTokenRequestTransfer
+     *
      * @return \Generated\Shared\Transfer\AccessTokenResponseTransfer
      */
-    public function generateAccessToken(): AccessTokenResponseTransfer
-    {
+    public function generateAccessToken(
+        AccessTokenRequestTransfer $accessTokenRequestTransfer
+    ): AccessTokenResponseTransfer {
         return $this->getFactory()
             ->createAccessTokenGenerator()
-            ->generateAccessToken();
+            ->generateAccessToken($accessTokenRequestTransfer);
     }
 }

@@ -43,6 +43,6 @@ class DummyAccessTokenProviderPlugin implements OauthAccessTokenProviderPluginIn
     public function getAccessToken(
         AccessTokenRequestTransfer $accessTokenRequestTransfer
     ): AccessTokenResponseTransfer {
-        return $this->getFacade()->generateAccessToken();
+        return $this->getFacade()->generateAccessToken($accessTokenRequestTransfer);
     }
 }

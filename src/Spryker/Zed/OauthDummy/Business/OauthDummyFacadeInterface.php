@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\OauthDummy\Business;
 
+use Generated\Shared\Transfer\AccessTokenRequestTransfer;
 use Generated\Shared\Transfer\AccessTokenResponseTransfer;
 
 interface OauthDummyFacadeInterface
@@ -17,7 +18,11 @@ interface OauthDummyFacadeInterface
      *
      * @api
      *
+     * @param \Generated\Shared\Transfer\AccessTokenRequestTransfer $accessTokenRequestTransfer
+     *
      * @return \Generated\Shared\Transfer\AccessTokenResponseTransfer
      */
-    public function generateAccessToken(): AccessTokenResponseTransfer;
+    public function generateAccessToken(
+        AccessTokenRequestTransfer $accessTokenRequestTransfer
+    ): AccessTokenResponseTransfer;
 }
