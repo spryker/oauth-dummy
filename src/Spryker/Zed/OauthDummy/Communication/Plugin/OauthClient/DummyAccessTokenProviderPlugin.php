@@ -9,13 +9,14 @@ namespace Spryker\Zed\OauthDummy\Communication\Plugin\OauthClient;
 
 use Generated\Shared\Transfer\AccessTokenRequestTransfer;
 use Generated\Shared\Transfer\AccessTokenResponseTransfer;
+use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\OauthClientExtension\Dependency\Plugin\OauthAccessTokenProviderPluginInterface;
-use Spryker\Zed\OauthDummy\OauthDummyConfig;
 
 /**
  * @method \Spryker\Zed\OauthDummy\Business\OauthDummyFacade getFacade()
+ * @method \Spryker\Zed\OauthDummy\OauthDummyConfig getConfig()
  */
-class DummyAccessTokenProviderPlugin implements OauthAccessTokenProviderPluginInterface
+class DummyAccessTokenProviderPlugin extends AbstractPlugin implements OauthAccessTokenProviderPluginInterface
 {
     /**
      * {@inheritDoc}
@@ -28,7 +29,7 @@ class DummyAccessTokenProviderPlugin implements OauthAccessTokenProviderPluginIn
      */
     public function isApplicable(AccessTokenRequestTransfer $accessTokenRequestTransfer): bool
     {
-        return (new OauthDummyConfig())->isDummyProviderEnabled() === true;
+        return $this->getConfig()->isDummyProviderEnabled() === true;
     }
 
     /**

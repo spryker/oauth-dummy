@@ -45,7 +45,7 @@ class AccessTokenGenerator implements AccessTokenGeneratorInterface
             InMemory::file($this->oauthDummyConfig->getPathToPublicKey()),
         );
 
-        $expiredIn = '1800';
+        $expiredIn = '86400';
         $expiredAt = (new DateTimeImmutable())
             ->add(new DateInterval("PT{$expiredIn}S"));
 
