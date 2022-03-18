@@ -10,6 +10,7 @@
 
     <transfer name="AccessTokenRequestOptions">
         <property name="audience" type="string"/>
+        <property name="storeReference" type="string"/>
     </transfer>
 
     <transfer name="AccessTokenResponse" strict="true">
