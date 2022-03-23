@@ -14,11 +14,11 @@ interface OauthDummyConstants
 {
     /**
      * Specification:
-     * - Specifies the state of the provider.
+     * - Specifies the store reference claim key.
      *
      * @api
      *
      * @var string
      */
-    public const IS_DUMMY_PROVIDER_ENABLED = 'IS_DUMMY_PROVIDER_ENABLED';
+    public const STORE_REFERENCE_KEY = 'store_reference';
 }

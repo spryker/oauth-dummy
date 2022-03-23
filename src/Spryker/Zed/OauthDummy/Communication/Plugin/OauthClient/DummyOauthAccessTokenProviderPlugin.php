@@ -16,7 +16,7 @@ use Spryker\Zed\OauthClientExtension\Dependency\Plugin\OauthAccessTokenProviderP
  * @method \Spryker\Zed\OauthDummy\Business\OauthDummyFacade getFacade()
  * @method \Spryker\Zed\OauthDummy\OauthDummyConfig getConfig()
  */
-class DummyAccessTokenProviderPlugin extends AbstractPlugin implements OauthAccessTokenProviderPluginInterface
+class DummyOauthAccessTokenProviderPlugin extends AbstractPlugin implements OauthAccessTokenProviderPluginInterface
 {
     /**
      * {@inheritDoc}
@@ -29,7 +29,7 @@ class DummyAccessTokenProviderPlugin extends AbstractPlugin implements OauthAcce
      */
     public function isApplicable(AccessTokenRequestTransfer $accessTokenRequestTransfer): bool
     {
-        return $this->getConfig()->isDummyProviderEnabled() === true;
+        return $this->getConfig()->isDevelopmentMode();
     }
 
     /**

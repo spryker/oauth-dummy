@@ -7,11 +7,20 @@
 
 namespace Spryker\Zed\OauthDummy;
 
-use Spryker\Shared\OauthDummy\OauthDummyConstants;
 use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class OauthDummyConfig extends AbstractBundleConfig
 {
+    /**
+     * @var string
+     */
+    public const EXPIRES_IN = '86400';
+
+    /**
+     * @var string
+     */
+    public const SUBJECT = 'subject';
+
     /**
      * @api
      *
@@ -49,8 +58,28 @@ class OauthDummyConfig extends AbstractBundleConfig
      *
      * @return bool
      */
-    public function isDummyProviderEnabled(): bool
+    public function isDevelopmentMode(): bool
     {
-        return $this->get(OauthDummyConstants::IS_DUMMY_PROVIDER_ENABLED, false);
+        return APPLICATION_ENV === 'development' || APPLICATION_ENV === 'docker.dev';
+    }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
+    public function getExpiredIn(): string
+    {
+        return static::EXPIRES_IN;
+    }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return static::SUBJECT;
     }
 }
