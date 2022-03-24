@@ -29,7 +29,7 @@ class DummyOauthAccessTokenProviderPlugin extends AbstractPlugin implements Oaut
      */
     public function isApplicable(AccessTokenRequestTransfer $accessTokenRequestTransfer): bool
     {
-        return $this->getConfig()->isDevelopmentMode();
+        return $this->getConfig()->isDevelopmentMode() || $this->getConfig()->isTestingMode();
     }
 
     /**

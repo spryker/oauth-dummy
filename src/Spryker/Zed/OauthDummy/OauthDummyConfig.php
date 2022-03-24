@@ -71,6 +71,16 @@ class OauthDummyConfig extends AbstractBundleConfig
     /**
      * @api
      *
+     * @return bool
+     */
+    public function isTestingMode(): bool
+    {
+        return (bool)getenv('SPRYKER_TESTING_ENABLED');
+    }
+
+    /**
+     * @api
+     *
      * @return string
      */
     public function getExpiredIn(): string
