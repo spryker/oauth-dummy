@@ -30,4 +30,23 @@ use Codeception\Actor;
 class OauthDummyBusinessTester extends Actor
 {
     use _generated\OauthDummyBusinessTesterActions;
+
+    /**
+     * @param string $token
+     *
+     * @return array
+     */
+    public function decodeAccessToken(string $token): array
+    {
+        return json_decode(
+            base64_decode(
+                str_replace(
+                    '_',
+                    '/',
+                    str_replace('-', '+', explode('.', $token)[1]),
+                ),
+            ),
+            true,
+        );
+    }
 }

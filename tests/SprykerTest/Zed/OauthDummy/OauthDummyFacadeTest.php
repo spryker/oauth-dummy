@@ -45,6 +45,7 @@ class OauthDummyFacadeTest extends Unit
      */
     public function testGenerateAccessTokenSuccess(): void
     {
+        // Arrange
         $accessTokenRequestOptionsTransfer = (new AccessTokenRequestOptionsTransfer())
             ->setAudience(static::TEST_AUDIENCE)
             ->setStoreReference(static::TEST_STORE_REFERENCE);
@@ -52,19 +53,11 @@ class OauthDummyFacadeTest extends Unit
         $accessTokenRequestTransfer = (new AccessTokenRequestTransfer())
             ->setAccessTokenRequestOptions($accessTokenRequestOptionsTransfer);
 
+        // Act
         $accessTokenResponseTransfer = $this->tester->getFacade()->generateAccessToken($accessTokenRequestTransfer);
 
-        $decodedToken = json_decode(
-            base64_decode(
-                str_replace(
-                    '_',
-                    '/',
-                    str_replace('-', '+', explode('.', $accessTokenResponseTransfer->getAccessToken())[1]),
-                ),
-            ),
-            true,
-        );
-
+        // Assert
+        $decodedToken = $this->tester->decodeAccessToken($accessTokenResponseTransfer->getAccessToken());
         $this->assertGreaterThan(time(), $accessTokenResponseTransfer->getExpiresAt());
         $this->assertEquals(static::TEST_AUDIENCE, $decodedToken['aud']);
         $this->assertEquals(static::TEST_STORE_REFERENCE, $decodedToken['store_reference']);
