@@ -16,7 +16,7 @@ interface OauthDummyFacadeInterface
      * Specification:
      * - Returns AccessTokenResponseTransfer with dummy token
      * - Options from AccessTokenResponseTransfer are used as a claims to generate the token.
-     * - ExpiresIn is specified in the module configuration
+     * - Expiration time is specified in the module configuration
      *
      * @api
      *

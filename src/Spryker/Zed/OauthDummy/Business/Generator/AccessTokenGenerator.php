@@ -14,7 +14,6 @@ use Generated\Shared\Transfer\AccessTokenResponseTransfer;
 use Lcobucci\JWT\Configuration;
 use Lcobucci\JWT\Signer\Key\InMemory;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
-use Spryker\Shared\OauthDummy\OauthDummyConstants;
 use Spryker\Zed\OauthDummy\OauthDummyConfig;
 
 class AccessTokenGenerator implements AccessTokenGeneratorInterface
@@ -47,7 +46,7 @@ class AccessTokenGenerator implements AccessTokenGeneratorInterface
         );
 
         $expiredAt = (new DateTimeImmutable())
-            ->add(new DateInterval("PT{$this->oauthDummyConfig->getExpiredIn()}S"));
+            ->add(new DateInterval(sprintf('PT%sS', $this->oauthDummyConfig->getExpiredIn())));
 
         $tokenBuilder = $configuration->builder()
             ->relatedTo($this->oauthDummyConfig->getSubject())
@@ -60,7 +59,7 @@ class AccessTokenGenerator implements AccessTokenGeneratorInterface
             }
             if ($accessTokenRequestTransfer->getAccessTokenRequestOptions()->getStoreReference()) {
                 $tokenBuilder->withClaim(
-                    OauthDummyConstants::STORE_REFERENCE_KEY,
+                    $this->oauthDummyConfig->getStoreReferenceKey(),
                     $accessTokenRequestTransfer->getAccessTokenRequestOptions()->getStoreReference(),
                 );
             }

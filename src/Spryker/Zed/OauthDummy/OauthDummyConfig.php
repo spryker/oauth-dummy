@@ -22,6 +22,11 @@ class OauthDummyConfig extends AbstractBundleConfig
     public const SUBJECT = 'subject';
 
     /**
+     * @var string
+     */
+    public const STORE_REFERENCE_KEY = 'store_reference';
+
+    /**
      * @api
      *
      * @return string
@@ -81,5 +86,15 @@ class OauthDummyConfig extends AbstractBundleConfig
     public function getSubject(): string
     {
         return static::SUBJECT;
+    }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
+    public function getStoreReferenceKey(): string
+    {
+        return static::STORE_REFERENCE_KEY;
     }
 }
