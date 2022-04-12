@@ -1,7 +1,7 @@
 {
     "name": "spryker/oauth-dummy",
     "type": "library",
-    "description": "OauthDummy module generates a dummy access token for development purposes.",
+    "description": "OauthDummy module",
     "license": "proprietary",
     "require": {
         "php": ">=7.4",
