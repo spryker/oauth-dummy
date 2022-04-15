@@ -27,6 +27,11 @@ class OauthDummyConfig extends AbstractBundleConfig
     public const STORE_REFERENCE_KEY = 'store_reference';
 
     /**
+     * @var string
+     */
+    public const PROVIDER_NAME = 'dummy';
+
+    /**
      * @api
      *
      * @return string
