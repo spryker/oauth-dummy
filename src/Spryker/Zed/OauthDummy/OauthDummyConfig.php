@@ -68,7 +68,7 @@ class OauthDummyConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getExpiredIn(): string
+    public function getExpiresIn(): string
     {
         return static::EXPIRES_IN;
     }
