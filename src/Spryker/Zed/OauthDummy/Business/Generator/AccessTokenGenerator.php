@@ -46,7 +46,7 @@ class AccessTokenGenerator implements AccessTokenGeneratorInterface
         );
 
         $expiredAt = (new DateTimeImmutable())
-            ->add(new DateInterval(sprintf('PT%sS', $this->oauthDummyConfig->getExpiredIn())));
+            ->add(new DateInterval(sprintf('PT%sS', $this->oauthDummyConfig->getExpiresIn())));
 
         $tokenBuilder = $configuration->builder()
             ->relatedTo($this->oauthDummyConfig->getSubject())

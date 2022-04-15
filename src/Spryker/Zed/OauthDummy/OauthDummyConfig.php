@@ -66,29 +66,9 @@ class OauthDummyConfig extends AbstractBundleConfig
     /**
      * @api
      *
-     * @return bool
-     */
-    public function isDevelopmentMode(): bool
-    {
-        return APPLICATION_ENV === 'development' || APPLICATION_ENV === 'docker.dev';
-    }
-
-    /**
-     * @api
-     *
-     * @return bool
-     */
-    public function isTestingMode(): bool
-    {
-        return (bool)getenv('SPRYKER_TESTING_ENABLED');
-    }
-
-    /**
-     * @api
-     *
      * @return string
      */
-    public function getExpiredIn(): string
+    public function getExpiresIn(): string
     {
         return static::EXPIRES_IN;
     }
@@ -111,5 +91,15 @@ class OauthDummyConfig extends AbstractBundleConfig
     public function getStoreReferenceKey(): string
     {
         return static::STORE_REFERENCE_KEY;
+    }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
+    public function getProviderName(): string
+    {
+        return static::PROVIDER_NAME;
     }
 }
