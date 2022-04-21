@@ -3,6 +3,7 @@
 
     <transfer name="AccessTokenRequest">
         <property name="accessTokenRequestOptions" type="AccessTokenRequestOptions"/>
+        <property name="providerName" type="string"/>
     </transfer>
 
     <transfer name="AccessTokenRequestOptions">
