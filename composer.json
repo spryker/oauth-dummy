@@ -4,7 +4,7 @@
     "description": "OauthDummy module",
     "license": "proprietary",
     "require": {
-        "lcobucci/jwt": "^4.0",
+        "lcobucci/jwt": "^3.4.6 || ^4.0.0",
         "php": ">=7.4",
         "spryker/kernel": "^3.30.0",
         "spryker/oauth-client-extension": "*",
