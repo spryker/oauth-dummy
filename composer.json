@@ -7,7 +7,7 @@
         "lcobucci/jwt": "^3.4.6 || ^4.0.0",
         "php": ">=7.4",
         "spryker/kernel": "^3.30.0",
-        "spryker/oauth-client-extension": "*",
+        "spryker/oauth-client-extension": "^1.0.0",
         "spryker/transfer": "^3.27.0"
     },
     "require-dev": {
