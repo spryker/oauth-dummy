@@ -23,19 +23,11 @@ class AccessTokenGenerator implements AccessTokenGeneratorInterface
      */
     protected $oauthDummyConfig;
 
-    /**
-     * @param \Spryker\Zed\OauthDummy\OauthDummyConfig $oauthDummyConfig
-     */
     public function __construct(OauthDummyConfig $oauthDummyConfig)
     {
         $this->oauthDummyConfig = $oauthDummyConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AccessTokenRequestTransfer $accessTokenRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\AccessTokenResponseTransfer
-     */
     public function generateAccessToken(
         AccessTokenRequestTransfer $accessTokenRequestTransfer
     ): AccessTokenResponseTransfer {

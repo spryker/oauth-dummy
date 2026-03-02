@@ -31,11 +31,6 @@ class OauthDummyBusinessTester extends Actor
 {
     use _generated\OauthDummyBusinessTesterActions;
 
-    /**
-     * @param string $token
-     *
-     * @return array
-     */
     public function decodeAccessToken(string $token): array
     {
         return json_decode(

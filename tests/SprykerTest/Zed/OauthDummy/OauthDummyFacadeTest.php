@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\OauthDummy\Business;
+namespace SprykerTest\Zed\OauthDummy;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\AccessTokenRequestOptionsTransfer;
@@ -18,7 +18,6 @@ use Generated\Shared\Transfer\AccessTokenResponseTransfer;
  * @group SprykerTest
  * @group Zed
  * @group OauthDummy
- * @group Business
  * @group Facade
  * @group OauthDummyFacadeTest
  * Add your own group annotations below this line
@@ -40,9 +39,6 @@ class OauthDummyFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGenerateAccessTokenSuccess(): void
     {
         // Arrange

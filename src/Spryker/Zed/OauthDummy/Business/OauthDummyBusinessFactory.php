@@ -16,9 +16,6 @@ use Spryker\Zed\OauthDummy\Business\Generator\AccessTokenGeneratorInterface;
  */
 class OauthDummyBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\OauthDummy\Business\Generator\AccessTokenGeneratorInterface
-     */
     public function createAccessTokenGenerator(): AccessTokenGeneratorInterface
     {
         return new AccessTokenGenerator($this->getConfig());
